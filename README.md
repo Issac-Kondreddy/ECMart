@@ -43,23 +43,33 @@ ECMart/
 
 ### Product Service
 - Navigate to product-service/
-
-- Configure application.properties
-
+- Configure application.propertie
 - Run ProductServiceApplication.java
-
 - Test using Postman at http://localhost:8083/api/products
 
+### Order Service (Port 8084)
+- Place new orders
+- Fetch orders by ID or User ID
+- Update order status
+- Delete/cancel orders
+- Test using Postman at http://localhost:8084/api/orders
+
 ### 🚀 In Progress
->Building order-service to manage carts and purchases
+⏳ payment-service – simulate payment flow
 
->Introducing inter-service communication
+⏳ notification-service – email/SMS alerts
 
->Adding authentication and JWT
+🔜 API Gateway – centralized access point
 
->Dockerizing all services
+🔜 Eureka Service Registry – auto-discovery
 
->Centralized logging and monitoring with ELK or Prometheus + Grafana_
+🔜 Config Server – centralized configs for all services
+
+🔜 Docker support (via docker-compose)
+
+🔜 CI/CD with GitHub Actions
+
+
 
 ## 🔧 Getting Started
 
@@ -74,7 +84,8 @@ Create a database before running user-service:
 
 ```sql
 CREATE DATABASE ecmart_userdb;
-CREATE DATABASE ecmart_productdb;       
+CREATE DATABASE ecmart_productdb;  
+CREATE DATABASE ecmart_orderdb;
 ```
 
 ## ▶️ Running User Service
