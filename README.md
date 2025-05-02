@@ -39,9 +39,27 @@ ECMart/
 - Register new users
 - Fetch user by email
 - Full integration with MySQL
-- Validated and tested using Postman
+- Validated and tested using Postman: http://localhost:8082/api/users
 
-_Other services are being built following the same clean architecture._
+### Product Service
+- Navigate to product-service/
+
+- Configure application.properties
+
+- Run ProductServiceApplication.java
+
+- Test using Postman at http://localhost:8083/api/products
+
+### 🚀 In Progress
+>Building order-service to manage carts and purchases
+
+>Introducing inter-service communication
+
+>Adding authentication and JWT
+
+>Dockerizing all services
+
+>Centralized logging and monitoring with ELK or Prometheus + Grafana_
 
 ## 🔧 Getting Started
 
@@ -56,6 +74,7 @@ Create a database before running user-service:
 
 ```sql
 CREATE DATABASE ecmart_userdb;
+CREATE DATABASE ecmart_productdb;       
 ```
 
 ## ▶️ Running User Service
@@ -77,5 +96,5 @@ CREATE DATABASE ecmart_userdb;
 
 ## 📌 License
 
-This is an educational backend architecture project. Use it freely for learning or showcasing your backend skills.
+>This is an educational backend architecture project. Use it freely for learning or showcasing your backend skills.
 
