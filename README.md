@@ -1,10 +1,22 @@
 # ECMart – E-Commerce Microservices System
 
-ECMart is a full-stack backend project implementing a modern e-commerce platform using **Microservices Architecture**. The system is designed for scalability, modularity, and clean separation of concerns. Each core business function is built as an independent Spring Boot microservice.
+**ECMart** is a full-stack backend microservices project simulating a modern e-commerce platform using **Java**, **Spring Boot**, and **MySQL**. Each business function is built as an independent Spring Boot microservice, enabling scalability, modularity, and clean separation of concerns.
+
+---
 
 ## 💡 Project Overview
 
-This system simulates a real-world e-commerce application backend, covering user registration, product listings, order placement, payment processing, and notifications. Each service communicates independently and is capable of being scaled, tested, and deployed in isolation.
+This system includes:
+
+- 👤 User Management
+- 📦 Product Catalog
+- 🛒 Order Placement
+- 💳 Payment Simulation
+- 📩 Notifications
+
+Each service runs independently and communicates over REST APIs.
+
+---
 
 ## 📁 Project Structure
 
@@ -15,105 +27,107 @@ ECMart/
 ├── order-service/          → Manages cart, orders, and order status
 ├── payment-service/        → Simulates payment transactions
 ├── notification-service/   → Sends out emails/SMS for updates
-├── api-gateway/            → Single entry point for all external requests
-├── service-registry/       → Eureka Server for service discovery
-├── config-server/          → Centralized configuration management
+├── api-gateway/            → Single entry point for all external requests (upcoming)
+├── service-registry/       → Eureka Server for service discovery (upcoming)
+├── config-server/          → Centralized configuration management (upcoming)
+```
+## 🛠️ Tech Stack
+```
+Language         : Java 17+
+Framework        : Spring Boot 3.x
+Database         : MySQL
+ORM              : Spring Data JPA (Hibernate)
+Build Tool       : Maven
+API Protocol     : REST (HTTP)
+Service Registry : Eureka (Spring Cloud)
+API Gateway      : Spring Cloud Gateway
+Config Server    : Spring Cloud Config
+Testing Tool     : Postman
 ```
 
-## 🛠️ Tech Stack
+## ✅ Completed Microservices
+### 🧍 User Service (8082)
+* Register and fetch users by email
+* MySQL DB: ecmart_userdb
+* Test endpoint: http://localhost:8082/api/users
 
-- **Language:** Java 17+
-- **Framework:** Spring Boot
-- **Database:** MySQL
-- **ORM:** Spring Data JPA
-- **Build Tool:** Maven
-- **Communication:** REST (HTTP)
-- **Service Registry:** Eureka
-- **Gateway:** Spring Cloud Gateway
-- **Config Management:** Spring Cloud Config
-- **Testing Tool:** Postman
+### 📦 Product Service (8083)
+* Add, update, delete, and fetch products
+* Find product by name
+* MySQL DB: ecmart_productdb
+* Test endpoint: http://localhost:8083/api/products
 
-## ✅ Completed Services
+### 🛒 Order Service (8084)
+* Place orders, update, delete, and fetch by ID/User
+* MySQL DB: ecmart_orderdb
+* Test endpoint: http://localhost:8084/api/orders
 
-### User Service
-- Register new users
-- Fetch user by email
-- Full integration with MySQL
-- Validated and tested using Postman: http://localhost:8082/api/users
+### 💳 Payment Service (8085)
+* Process and record payments
+* Retrieve payment by ID or order ID
+* MySQL DB: ecmart_paymentdb
+* Test endpoint: http://localhost:8085/api/payments
 
-### Product Service
-- Navigate to product-service/
-- Configure application.propertie
-- Run ProductServiceApplication.java
-- Test using Postman at http://localhost:8083/api/products
+### 📩 Notification Service (8086)
+* Simulates EMAIL/SMS notification sending
+* Console-based mock delivery
+* Stores history in ecmart_notificationdb
+* Test endpoint: http://localhost:8086/api/notifications
 
-### Order Service (Port 8084)
-- Place new orders
-- Fetch orders by ID or User ID
-- Update order status
-- Delete/cancel orders
-- Test using Postman at http://localhost:8084/api/orders
+## 🧰 Prerequisites
+```text
+Java:      17 or higher
+Maven:     Installed and configured
+MySQL:     Installed and running
+IDE:       IntelliJ IDEA or VS Code
+```
 
-### 4. Payment Service (`8085`)
-- Process payments for a given order
-- Save and retrieve payment status (`SUCCESS`, `FAILED`, etc.)
-- Retrieve payment by ID or by `orderId`
-- Fully integrated with MySQL and tested using Postman
-
-
-### 🚀 In Progress
-⏳ payment-service – simulate payment flow
-
-⏳ notification-service – email/SMS alerts
-
-🔜 API Gateway – centralized access point
-
-🔜 Eureka Service Registry – auto-discovery
-
-🔜 Config Server – centralized configs for all services
-
-🔜 Docker support (via docker-compose)
-
-🔜 CI/CD with GitHub Actions
-
-
-
-## 🔧 Getting Started
-
-### Prerequisites
-- Java 17 or higher
-- Maven
-- MySQL installed and running
-- IDE (IntelliJ IDEA recommended)
-
-### MySQL Setup
-Create a database before running user-service:
+🗃️ MySQL Setup
+Run these in MySQL before launching services:
 
 ```sql
 CREATE DATABASE ecmart_userdb;
-CREATE DATABASE ecmart_productdb;  
+CREATE DATABASE ecmart_productdb;
 CREATE DATABASE ecmart_orderdb;
 CREATE DATABASE ecmart_paymentdb;
+CREATE DATABASE ecmart_notificationdb;
 ```
+▶️ How to Run Each Service
+🧍 User Service
+```bash
+cd user-service
+# Configure DB in application.properties
+# Run UserServiceApplication.java
+```
+📦 Product Service
+```bash
+cd product-service
+# Run ProductServiceApplication.java
+```
+🛒 Order Service
+```bash
+cd order-service
+# Run OrderServiceApplication.java
+```
+💳 Payment Service
+```bash
+cd payment-service
+# Run PaymentServiceApplication.java
+```
+📩 Notification Service
+```bash
+cd notification-service
+# Run NotificationServiceApplication.java
+```
+🚀 Upcoming Enhancements
+* 🔐 Authentication & Authorization (JWT)
+* 🌐 API Gateway (Spring Cloud Gateway)
+* 📘 Central Config Server
+* 🔎 Service Discovery with Eureka
+* 🐳 Docker & Docker Compose
+* ⚙️ CI/CD using GitHub Actions
+* 📊 Logging and Monitoring (ELK, Zipkin)
 
-## ▶️ Running User Service
-
-1. Navigate to the `user-service/` directory  
-2. Open in IDE  
-3. Configure `application.properties` with your MySQL credentials  
-4. Run the main class `UserServiceApplication.java`  
-5. Test endpoints using Postman: http://localhost:8082/api/users
-
-   
-## 🚀 In Progress
-
-- Implementing product, order, and payment services  
-- Introducing inter-service communication  
-- Adding authentication and JWT  
-- Dockerizing the system  
-- Centralized logging and monitoring  
-
-## 📌 License
-
->This is an educational backend architecture project. Use it freely for learning or showcasing your backend skills.
-
+📌 License
+>This is an open-source educational project created for learning purposes.
+Feel free to fork, contribute, or showcase in your backend portfolio.
