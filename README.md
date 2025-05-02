@@ -54,6 +54,13 @@ ECMart/
 - Delete/cancel orders
 - Test using Postman at http://localhost:8084/api/orders
 
+### 4. Payment Service (`8085`)
+- Process payments for a given order
+- Save and retrieve payment status (`SUCCESS`, `FAILED`, etc.)
+- Retrieve payment by ID or by `orderId`
+- Fully integrated with MySQL and tested using Postman
+
+
 ### 🚀 In Progress
 ⏳ payment-service – simulate payment flow
 
@@ -86,6 +93,7 @@ Create a database before running user-service:
 CREATE DATABASE ecmart_userdb;
 CREATE DATABASE ecmart_productdb;  
 CREATE DATABASE ecmart_orderdb;
+CREATE DATABASE ecmart_paymentdb;
 ```
 
 ## ▶️ Running User Service
