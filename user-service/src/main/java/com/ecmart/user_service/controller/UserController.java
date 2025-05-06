@@ -9,9 +9,14 @@ import org.springframework.http.ResponseEntity;
 
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 public class UserController {
     private final UserService userService;
+
+    @GetMapping
+    public ResponseEntity<String> getAllUsers() {
+        return ResponseEntity.ok("User service working!");
+    }
 
     @Autowired
     public UserController(UserService userService) {
@@ -27,10 +32,9 @@ public class UserController {
     @GetMapping("/email/{email}")
     public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
         User user = userService.getUserbyEmail(email);
-        if(user!=null){
+        if (user != null) {
             return ResponseEntity.ok(user);
-        }
-        else{
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
