@@ -119,11 +119,16 @@ cd payment-service
 cd notification-service
 # Run NotificationServiceApplication.java
 ```
+🌐 Eureka Server
+```bash
+cd service-registry
+mvn spring-boot:run
+```
+
 🚀 Upcoming Enhancements
 * 🔐 Authentication & Authorization (JWT)
 * 🌐 API Gateway (Spring Cloud Gateway)
 * 📘 Central Config Server
-* 🔎 Service Discovery with Eureka
 * 🐳 Docker & Docker Compose
 * ⚙️ CI/CD using GitHub Actions
 * 📊 Logging and Monitoring (ELK, Zipkin)
